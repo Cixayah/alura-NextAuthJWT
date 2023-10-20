@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { authService } from '../src/services/auth/authService';
 export default function HomeScreen() {
   const router = useRouter();
   // Define o estado inicial para as variáveis 'usuario' e 'senha'
@@ -27,6 +28,8 @@ export default function HomeScreen() {
     <div>
       <h1>Login</h1>
       <form onSubmit={(event) => {
+        // onSubmit -> Controller (pega dados do usuário e passa para um serviço)
+        // authService -> Serviço ()
         // Impede o envio do formulário quando o botão é pressionado
         event.preventDefault();
         authService.login({
