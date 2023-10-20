@@ -29,8 +29,17 @@ export default function HomeScreen() {
       <form onSubmit={(event) => {
         // Impede o envio do formulário quando o botão é pressionado
         event.preventDefault();
-        //  router.push('/auth-page-static');
-        router.push('/auth-page-ssr');
+        authService.login({
+          username: values.usuario,
+          password: values.senha,
+        })
+          .then(() => {
+            //  router.push('/auth-page-static');
+            router.push('/auth-page-ssr');
+          })
+          .catch(() => {
+            alert('Usuário ou a senha estão inválidos')
+          })
       }}>
 
         <input
@@ -50,6 +59,6 @@ export default function HomeScreen() {
           </button>
         </div>
       </form>
-    </div>
+    </div >
   );
 }
