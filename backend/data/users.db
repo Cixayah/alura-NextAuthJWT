@@ -3,3 +3,4 @@
 {"username":"cix","password":"safepassword","name":"Gabriel","email":"dev.gabrielvcosta@gmail.com","_id":"xeMINJmS7ZWHxUML"}
 {"$$indexCreated":{"fieldName":"username","unique":true,"sparse":false}}
 {"username":"omariosouto","name":"Mario Souto","email":"contato@alura.com.br","password":"safepassword","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTc4MTk4MjUsImV4cCI6MTY5ODQyNDYyNSwic3ViIjoiU05ZOGUyVDgwaUFpNjg3cyJ9.tHuvfhisq6vB-C75HqO4QtotMfTKq2iJ5STBvsiI-sg","_id":"SNY8e2T80iAi687s"}
+{"username":"omariosouto","name":"Mario Souto","email":"contato@alura.com.br","password":"safepassword","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTc4MjU2NTgsImV4cCI6MTY5ODQzMDQ1OCwic3ViIjoiU05ZOGUyVDgwaUFpNjg3cyJ9.9g8QZxqNQkeFhiSmtQ4pI-mNb1GGB2wr8yMNzhLQBPM","_id":"SNY8e2T80iAi687s"}
