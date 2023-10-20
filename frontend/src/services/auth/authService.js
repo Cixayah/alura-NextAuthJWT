@@ -7,14 +7,11 @@ export const authService = {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                username,
-                password,
-            })
+            body: { username, password, }
         })
             .then(async (respostaDoServidor) => {
                 if (!respostaDoServidor.ok) throw new Error('Usuário ou senha inválidos')
-                const body = await respostaDoServidor.json();
+                const body = respostaDoServidor.body;
                 console.log(respostaDoServidor);
             })
     }
