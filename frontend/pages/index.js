@@ -29,7 +29,7 @@ export default function HomeScreen() {
       <form onSubmit={(event) => {
         // Impede o envio do formulário quando o botão é pressionado
         event.preventDefault();
-      //  router.push('/auth-page-static');
+        //  router.push('/auth-page-static');
         router.push('/auth-page-ssr');
       }}>
 
