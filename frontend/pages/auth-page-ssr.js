@@ -24,7 +24,7 @@ export async function getServerSideProps(ctx) {
     const cookies = nookies.get(ctx);
     return {
         props: {
-            token: tokenService.get(),
+            token: tokenService.get(ctx),
         },
     }
 }
