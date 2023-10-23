@@ -1,3 +1,6 @@
+import nookies from 'nookies';
+import { tokenService } from "../src/services/auth/tokenService";
+
 function AuthPageSSR(props) {
     // Este é um componente React chamado AuthPageSSR. Ele recebe 'props' como parâmetro.
 
@@ -12,7 +15,16 @@ function AuthPageSSR(props) {
         </div>
     )
     // O componente renderiza um título, "Auth Page Server Side Render", e exibe as 'props' em formato JSON.
-}
 
+}
 export default AuthPageSSR;
-// Exporta o componente para que ele possa ser importado e usado em outras partes do aplicativo.
+
+export async function getServerSideProps(ctx) {
+    console.log(tokenService.get());
+    const cookies = nookies.get(ctx);
+    return {
+        props: {
+            token: tokenService.get(),
+        },
+    }
+}
