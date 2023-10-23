@@ -4,67 +4,60 @@ import { authService } from '../src/services/auth/authService';
 
 export default function HomeScreen() {
   const router = useRouter();
-
-  // Define o estado inicial para as variáveis 'usuario' e 'senha'
   const [values, setValues] = React.useState({
     usuario: 'omariosouto',
     senha: 'safepassword',
   });
 
-  // Função que é chamada quando o valor de um campo é alterado
   function handleChange(event) {
-    // Obtém o valor do campo e o nome do campo do evento
     const fieldValue = event.target.value;
     const fieldName = event.target.name;
-
-    // Atualiza o estado com os novos valores do campo
     setValues((currentValues) => {
       return {
         ...currentValues,
         [fieldName]: fieldValue,
       };
-    });
+    })
   }
 
   return (
     <div>
       <h1>Login</h1>
       <form onSubmit={(event) => {
-        // onSubmit -> Controller (pega dados do usuário e passa para um serviço)
-        // authService -> Serviço (lida com a autenticação)
-        // Impede o envio do formulário quando o botão é pressionado
+        // onSubmit -> Controller (pega dados do usuário e passa pra um serviço)
+        // authService -> Serviço
         event.preventDefault();
-        authService.login({
-          username: values.usuario,
-          password: values.senha,
-        })
+        authService
+          .login({
+            username: values.usuario,
+            password: values.senha,
+          })
           .then(() => {
-            // Após a autenticação bem-sucedida, redireciona o usuário para outra página
+            // router.push('/auth-page-static');
             router.push('/auth-page-ssr');
           })
-          .catch(() => {
-            // Em caso de falha na autenticação, exibe um alerta ao usuário
+          .catch((err) => {
+            console.log(err);
             alert('Usuário ou a senha estão inválidos')
           })
       }}>
-
         <input
           placeholder="Usuário" name="usuario"
-          defaultValue={values.usuario} onChange={handleChange}
+          value={values.usuario} onChange={handleChange}
         />
         <input
           placeholder="Senha" name="senha" type="password"
-          defaultValue={values.senha} onChange={handleChange}
+          value={values.senha} onChange={handleChange}
         />
-        {/*<pre>
+        {/* <pre>
           {JSON.stringify(values, null, 2)}
-        </pre>*/}
+        </pre> */}
         <div>
           <button>
             Entrar
           </button>
         </div>
       </form>
-    </div >
+    </div>
   );
 }
